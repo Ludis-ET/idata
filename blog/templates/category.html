@@ -1,0 +1,59 @@
+{% extends "blog.html" %}
+{% block name %}
+    <h2 style="color: #333;">{{cat.name}} Category</h2>
+{% endblock %}
+{%block blog %}
+{% load static %}
+<section class="blog_area section-padding">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-lg-8 mb-5 mb-lg-0">
+                        <div class="blog_left_sidebar">
+                            {% if blogs %}
+                            {% for blog in blogs %}
+                            <article class="blog_item">
+                                <div class="blog_item_img">
+                                    <img class="card-img rounded-0" src="{{blog.poster.url}}" alt="">
+                                    <a href="{% url 'blogpost' blog.id %}" class="blog_item_date">
+                                        <h3>{{blog.date.day}}</h3>
+                                        <p>{{blog.date|date:'M'}}</p>
+                                    </a>
+                                </div>
+                                <div class="blog_details">
+                                    <a class="d-inline-block" href="{% url 'blogpost' blog.id %}">
+                                        <h2 class="blog-head" style="color: #2d2d2d;">{{blog.name}}</h2>
+                                    </a>
+                                    <p>{{blog.disc}}</p>
+                                    <ul class="blog-info-link">
+                                        <li><a href="{% url "category" blog.category.id %}"><i class="fa fa-book"></i> {{blog.category.name}}</a></li>
+                                    </ul>
+                                </div>
+                            </article>
+                            {% endfor %}
+                            {% else %}
+                            <h1>No post available</h1>
+                            {% endif %}
+                            {% comment %} <nav class="blog-pagination justify-content-center d-flex">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a href="#" class="page-link" aria-label="Previous">
+                                            <i class="ti-angle-left"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a href="#" class="page-link">1</a>
+                                    </li>
+                                    <li class="page-item active">
+                                        <a href="#" class="page-link">2</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a href="#" class="page-link" aria-label="Next">
+                                            <i class="ti-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav> {% endcomment %}
+                        </div>
+                    </div>
+{% endblock %}

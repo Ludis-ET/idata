@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block main %}
+{% load static %}
+<main>
+    
+    <!--? Hero Start -->
+    <div class="slider-area ">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap hero-cap2 text-center">
+                            <h2>our works</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="whole-wrap">
+        <div class="container box_1170">
+            {% for a in por %}
+            <div class="section-top-border">
+                <h3 class="mb-30">{{a.name}}</h3>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{{a.image.url}}" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-9 mt-sm-20">
+                        <p>{{a.disc}}</p>
+
+                <a href="{{a.url}}" class="genric-btn success">View our work</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</main>
+{% endblock%}
+   
