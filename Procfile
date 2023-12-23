@@ -1,1 +1,1 @@
-web: gunicorn 'idata.wsgi'
+web: gunicorn idata.wsgi --log-file -
