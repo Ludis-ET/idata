@@ -237,44 +237,28 @@
                     </div>
                 </div>
                 <div class="row">
+                    {% for a in blogs|slice:"-2:" %}
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
                                 <div class="blog-img">
-                                    <img src="{% static 'assets/img/gallery/home-blog1.png' %}" alt="">
+                                    <img src="{{a.poster.url}}" alt="">
                                     <!-- Blog date -->
                                     <div class="blog-date text-center">
-                                        <span>24</span>
-                                        <p>Now</p>
+                                        <span>{{a.date.day}}</span>
+                                        <p>{{a.date | date:"M"}}</p>
                                     </div>
                                 </div>
                                 <div class="blog-cap">
-                                    <p>|   Properties</p>
-                                    <h3><a href="blog_details.html">Footprints in Time is perfect House in Kurashiki</a></h3>
-                                    <a href="blog_details.html" class="more-btn">Read more »</a>
+                                    <p>category|   {{a.category.name}}</p>
+                                    <h3><a href="{% url "blogpost" a.id %}">{{a.name}}</a></h3>
+                                    <p>{{a.disc}}</p>
+                                    <a href="{% url "blogpost" a.id %}" class="more-btn">Read more »</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6">
-                        <div class="home-blog-single mb-30">
-                            <div class="blog-img-cap">
-                                <div class="blog-img">
-                                    <img src="{% static 'assets/img/gallery/home-blog2.png' %}" alt="">
-                                    <!-- Blog date -->
-                                    <div class="blog-date text-center">
-                                        <span>24</span>
-                                        <p>Now</p>
-                                    </div>
-                                </div>
-                                <div class="blog-cap">
-                                    <p>|   Properties</p>
-                                    <h3><a href="blog_details.html">Footprints in Time is perfect House in Kurashiki</a></h3>
-                                    <a href="blog_details.html" class="more-btn">Read more »</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -283,6 +267,7 @@
 
 
         <!--? Popular Course Start -->
+        {% if courses %}
         <div class="popular-course section-padding30">
             <div class="container">
                 <div class="row justify-content-sm-center">
@@ -295,17 +280,18 @@
                     </div>
                 </div>
                 <div class="row">
+                    {% for a in courses|slice:"-3:" %}
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <!-- Single course -->
                         <div class="single-course mb-40">
                             <div class="course-img">
-                                <img src="{% static 'assets/img/gallery/popular_sub1.png' %}" alt="">
+                                <img src="{{a.poster.url}}" alt="">
                             </div>
                             <div class="course-caption">
                                 <div class="course-cap-top">
-                                    <h4><a href="#">Graphic Design</a></h4>
+                                    <h4><a href="{% url "course" %}">{{a.name}}</a></h4>
                                 </div>
-                                <div class="course-cap-mid d-flex justify-content-between">
+                                {% comment %} <div class="course-cap-mid d-flex justify-content-between">
                                     <div class="course-ratting">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -321,81 +307,24 @@
                                         <li><i class="ti-heart"></i> 562</li>
                                     </ul>
                                     <span>Free</span>
-                                </div>
+                                </div> {% endcomment %}
+                                <p>{{a.disc}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <!-- Single course -->
-                        <div class="single-course mb-40">
-                            <div class="course-img">
-                                <img src="{% static 'assets/img/gallery/popular_sub2.png' %}" alt="">
-                            </div>
-                            <div class="course-caption">
-                                <div class="course-cap-top">
-                                    <h4><a href="#">Web Development</a></h4>
-                                </div>
-                                <div class="course-cap-mid d-flex justify-content-between">
-                                    <div class="course-ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <ul><li>52 Review</li></ul>
-                                </div>
-                                <div class="course-cap-bottom d-flex justify-content-between">
-                                    <ul>
-                                        <li><i class="ti-user"></i> 562</li>
-                                        <li><i class="ti-heart"></i> 562</li>
-                                    </ul>
-                                    <span>Free</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <!-- Single course -->
-                        <div class="single-course mb-40">
-                            <div class="course-img">
-                                <img src="{% static 'assets/img/gallery/popular_sub3.png' %}" alt="">
-                            </div>
-                            <div class="course-caption">
-                                <div class="course-cap-top">
-                                    <h4><a href="#">Digital Marketing</a></h4>
-                                </div>
-                                <div class="course-cap-mid d-flex justify-content-between">
-                                    <div class="course-ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <ul><li>52 Review</li></ul>
-                                </div>
-                                <div class="course-cap-bottom d-flex justify-content-between">
-                                    <ul>
-                                        <li><i class="ti-user"></i> 562</li>
-                                        <li><i class="ti-heart"></i> 562</li>
-                                    </ul>
-                                    <span>Free</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <!-- Section Button -->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="browse-btn2 text-center mt-50">
-                            <a href="courses.html" class="btn">Find More Courses</a>
+                            <a href="{% url "course" %}" class="btn">Find More Courses</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        {% endif %}
         <!-- Popular Course End -->
         <!--? About Law Start-->
         <div class="about-area section-padding2">
@@ -408,14 +337,14 @@
                                 <span>More About Our Company</span>
                                 <h2>Want to know more</h2>
                             </div>
-                            <p>There arge many variations ohf passages of sorem gpsum ilable, but the majority have suffered alteration in some form, by ected humour, or randomised words whi.</p>
+                            <p>i Data Technology is more than just a training institute; we are your gateway to the exciting world of data analytics and machine learning. Located in Addis Ababa, Ethiopia, we are committed to empowering individuals by providing top-notch training in collaboration with Nanolink Data Analytics, a prominent company based in the USA.</p>
                             <ul>
-                                <li><span class="flaticon-business"></span> Creative ideas base</li>
-                                <li><span class="flaticon-communications-1"></span> Assages of sorem gpsum ilable</li>
-                                <li><span class="flaticon-graduated"></span> Have suffered alteration in so</li>
-                                <li><span class="flaticon-tools-and-utensils"></span> Randomised words whi</li>
+                                <li><span class="flaticon-business"></span> Quality Training</li>
+                                <li><span class="flaticon-communications-1"></span> Global Collaboration</li>
+                                <li><span class="flaticon-graduated"></span> Accessibility</li>
+                                <li><span class="flaticon-tools-and-utensils"></span> Hands-On Experience</li>
                             </ul>
-                            <a href="about.html" class="btn">More About Us</a>
+                            <a href="{% url "about" %}" class="btn">More About Us</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
