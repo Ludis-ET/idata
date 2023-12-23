@@ -23,6 +23,10 @@
 	<link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
 	<link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
 	<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fontawesome-iconpicker/3.2.0/js/fontawesome-iconpicker.min.js" integrity="sha512-7dlzSK4Ulfm85ypS8/ya0xLf3NpXiML3s6HTLu4qDq7WiJWtLLyrXb9putdP3/1umwTmzIvhuu9EW7gHYSVtCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <div id="preloader-active">
@@ -55,7 +59,7 @@
                                 <div class="header-info-left">
                                     <ul>     
                                         <li>{{em.first.address}}</li>
-                                        <li>{{ph.first.address}}</li>
+                                        <li>{{ph.first.number}}</li>
                                     </ul>
                                 </div>
                                 <div class="header-info-right">
@@ -88,7 +92,7 @@
                                         <li><a href="{% url "course" %}">Courses</a></li>
                                         <li><a href="{% url "portfolio" %}">Portfolio</a></li>
                                         <li><a href="{% url 'blog' %}">Blog</a></li>
-                                        <li><a href="courses.html">Careers</a></li>
+                                        {% comment %} <li><a href="courses.html">Careers</a></li> {% endcomment %}
                                         <!-- <li><a href="blog.html">Blog</a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">Blog</a></li>
