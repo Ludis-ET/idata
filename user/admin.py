@@ -4,3 +4,4 @@ from .models import *
 
 
 admin.site.register(Staff)
+admin.site.register(Comment)

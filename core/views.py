@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 from blog.models import Blog
 from course.models import Course
-from user.models import Staff
+from user.models import Staff,Comment
+from django.contrib import messages
 
 def index(request):
     i = Idata.objects.get(id=1)
@@ -38,6 +39,26 @@ def about(request):
         'staffs':staffs,
     }
     return render(request,'about.html',context)
+
+
+def contact(request):
+    i = Idata.objects.get(id=1)
+    em = Email.objects.all()
+    ph = Phone.objects.all()
+    if request.method == 'POST':
+        a = request.POST['message']
+        b = request.POST['name']
+        c = request.POST['email']
+        Comment.objects.create(name=c,email=b,text=a)
+        messages.success(request,'message succesfully transfered thankyou for your interest.')
+        return redirect('contact')
+
+    context = {
+        'i':i,
+        'em':em,
+        'ph':ph,
+    }
+    return render(request,'contact.html',context)
 
 def portfolio(request):
     i = Idata.objects.get(id=1)

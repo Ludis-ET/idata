@@ -9,3 +9,12 @@ class Staff(models.Model):
     twitter = models.URLField(null=True)
     def __str__(self):
         return self.name
+    
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    text = models.TextField(max_length=2555)
+    def __str__(self):
+        return self.name
