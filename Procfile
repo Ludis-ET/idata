@@ -1,1 +1,1 @@
-web: gunicorn idata.wsgi --log-file
+web: gunicorn idata.asgi --log-file
