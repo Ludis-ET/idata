@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 from blog.models import Blog
 from course.models import Course
+from user.models import Staff
 
 def index(request):
     i = Idata.objects.get(id=1)
@@ -9,12 +10,14 @@ def index(request):
     ph = Phone.objects.all()
     blogs = Blog.objects.all()
     courses = Course.objects.all()
+    staffs = Staff.objects.all()
     context ={
         'i':i,
         'em':em,
         'ph':ph,
         'blogs':blogs,
         'courses':courses,
+        'staffs':staffs,
     }
     return render(request,'index.html',context)
 
@@ -25,12 +28,14 @@ def about(request):
     ph = Phone.objects.all()
     about = About.objects.all()
     par = About_paragraph.objects.all()
+    staffs = Staff.objects.all()
     context = {
         'i':i,
         'em':em,
         'ph':ph,
         'about':about,
         'par':par,
+        'staffs':staffs,
     }
     return render(request,'about.html',context)
 

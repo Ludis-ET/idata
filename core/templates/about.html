@@ -35,8 +35,105 @@
                 </div>
             </div>
         </div>
+
+
+<div class="whole-wrap">
+	<div class="container box_1170">
+        <div class="section-top-border">
+            <h3 class="mb-30">Objectives</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="single-defination">
+                        <h4 class="mb-20">Quality Training</h4>
+                        <p>To provide high-quality training programs that cater to diverse backgrounds and skill levels, ensuring every student receives a world-class education in data analytics.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-defination">
+                        <h4 class="mb-20">Global Collaboration</h4>
+                        <p>To foster international collaboration, like our partnership with Nanolink Data Analytics in the USA, to continuously enhance and update our training offerings.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-defination">
+                        <h4 class="mb-20">Accessibility</h4>
+                        <p>To make data education accessible to all individuals who seek to improve their data skills, regardless of their location or prior experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="team-area pt-160 pb-160 section-bg" >
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="cl-xl-7 col-lg-8 col-md-10">
+                <!-- Section Tittle -->
+                <div class="section-tittle section-tittle2 text-center mb-70">
+                    <span>More About Our Faculty</span>
+                </div> 
+            </div>
+        </div>
+        <div class="row">
+            {% for a in staffs|slice:":4" %}
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-team mb-30">
+                    <div class="team-img">
+                        <img src="{{a.profile.url}}" alt="">
+                        <!-- Blog Social -->
+                        <ul class="team-social">
+                            <li><a href="{{a.facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{a.twitter}}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{a.linkedin}}"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="team-caption">
+                        <h3><a href="{% url "staff" %}">{{a.name}}</a></h3>
+                        <p>{{a.pro}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Section Button -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="browse-btn2 text-center mt-70">
+                    <a href="{% url "staff" %}" class="btn white-btn">View All Faculty</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="whole-wrap">
+	<div class="container box_1170">
+        <div class="section-top-border">
+            <h3 class="mb-30">Goals</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="single-defination">
+                        <h4 class="mb-20">Empowerment</h4>
+                    <p>To empower every student with the practical skills and knowledge to succeed in the data analytics and machine learning field.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-defination">
+                        <h4 class="mb-20">Innovation</h4>
+                    <p>To foster innovation by preparing a new generation of data professionals who can drive data-driven initiatives in their respective organizations.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-defination">
+                        <h4 class="mb-20">Global Reach</h4>
+                    <p>To expand our reach, ensuring that the benefits of our training are accessible to learners not only in Ethiopia but around the world.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
         <!--? Testimonial Start -->
-        <div class="testimonial-area fix pt-180 pb-180 section-bg" data-background="{% static 'assets/img/gallery/section_bg03.png' %}">
+        {% comment %} <div class="testimonial-area fix pt-180 pb-180 section-bg" data-background="{% static 'assets/img/gallery/section_bg03.png' %}">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-9 col-md-9">
@@ -93,7 +190,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
     </main>
 {% endblock%}
    

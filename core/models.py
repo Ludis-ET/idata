@@ -28,7 +28,7 @@ class Phone(models.Model):
 class About(models.Model):
     title = models.CharField(max_length=255)
     def __str__(self):
-        return self.name
+        return self.title
     
 
 class About_paragraph(models.Model):

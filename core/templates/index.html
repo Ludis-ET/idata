@@ -370,85 +370,35 @@
                         <!-- Section Tittle -->
                         <div class="section-tittle section-tittle2 text-center mb-70">
                             <span>More About Our Faculty</span>
-                            <h2>Our Best Teachers</h2>
                         </div> 
                     </div>
                 </div>
                 <div class="row">
+                    {% for a in staffs|slice:":4" %}
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-team mb-30">
                             <div class="team-img">
-                                <img src="{% static 'assets/img/gallery/team1.png' %}" alt="">
+                                <img src="{{a.profile.url}}" alt="">
                                 <!-- Blog Social -->
                                 <ul class="team-social">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-globe"></i></a></li>
+                                    <li><a href="{{a.facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="{{a.twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="{{a.linkedin}}"><i class="fab fa-linkedin"></i></a></li>
                                 </ul>
                             </div>
                             <div class="team-caption">
-                                <h3><a href="instructor.html">Alexa Janathon</a></h3>
-                                <p>Faculty</p>
+                                <h3><a href="{% url "staff" %}">{{a.name}}</a></h3>
+                                <p>{{a.pro}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-team mb-30">
-                            <div class="team-img">
-                                <img src="{% static 'assets/img/gallery/team2.png' %}" alt="">
-                                <!-- Blog Social -->
-                                <ul class="team-social">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-globe"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="team-caption">
-                                <h3><a href="instructor.html">Janathon Smith</a></h3>
-                                <p>Faculty</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-team mb-30">
-                            <div class="team-img">
-                                <img src="{% static 'assets/img/gallery/team3.png' %}" alt="">
-                                <!-- Blog Social -->
-                                <ul class="team-social">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-globe"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="team-caption">
-                                <h3><a href="instructor.html">Alexa MacCalum</a></h3>
-                                <p>Faculty</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-team mb-30">
-                            <div class="team-img">
-                                <img src="{% static 'assets/img/gallery/team4.png' %}" alt="">
-                                <!-- Blog Social -->
-                                <ul class="team-social">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-globe"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="team-caption">
-                                <h3><a href="instructor.html">Alexa j Watson</a></h3>
-                                <p>Faculty</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <!-- Section Button -->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="browse-btn2 text-center mt-70">
-                            <a href="instructor.html" class="btn white-btn">View All Faculty</a>
+                            <a href="{% url "staff" %}" class="btn white-btn">View All Faculty</a>
                         </div>
                     </div>
                 </div>
@@ -457,7 +407,7 @@
         <!-- Team Ara End -->
         
         <!--? Testimonial Start -->
-        <div class="testimonial-area fix pt-180 pb-180 section-bg" data-background="{% static 'assets/img/gallery/section_bg03.png'%}">
+        {% comment %} <div class="testimonial-area fix pt-180 pb-180 section-bg" data-background="{% static 'assets/img/gallery/section_bg03.png'%}">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-9 col-md-9">
@@ -514,7 +464,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
         <!-- Testimonial End -->
         
     </main>
