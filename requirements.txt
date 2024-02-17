@@ -7,4 +7,8 @@ packaging==23.2
 phonenumbers==8.13.27
 Pillow==10.1.0
 pyproject_hooks==1.0.0
+psycopg2-binary==2.9.9
+pycodestyle==2.9.1
+python-decouple==3.8
+python-dotenv==1.0.1
 sqlparse==0.4.4
