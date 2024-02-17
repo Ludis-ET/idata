@@ -3,6 +3,8 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.site_header = "idata administration"
+admin.site.name = "idata"
 urlpatterns = [
     path('admin-ludis/', admin.site.urls),
     path('',include('core.urls')),

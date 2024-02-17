@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-k(80!3#s2#)c3+-zd#vr$tj61v!lt==(zxv884*!3-nl-mh+6q'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -73,23 +73,24 @@ WSGI_APPLICATION = 'idata.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': 'fB-36a-43-aaFDG2G*D2BGD4BdE1bdGB',
-#         'HOST': 'roundhouse.proxy.rlwy.net',
-#         'PORT': '49858',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME', default=os.environ.get('DATABASE_NAME')),
+        'USER': config('DB_USER', default=os.environ.get('DATABASE_USER')),
+        'PASSWORD': config('DB_PASSWORD', default=os.environ.get('DATABASE_PASS')),
+        'HOST': config('DB_HOST', default='ep-purple-boat-a5o3pb0m.us-east-2.aws.neon.tech'),
+        'PORT': config('DB_PORT', default='5432'),
+        'OPTIONS': {'sslmode': 'require'},
+    }
+}
 
 
 # Password validation
