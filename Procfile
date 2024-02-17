@@ -1,1 +1,0 @@
-web: gunicorn idata.wsgi --log-file -
